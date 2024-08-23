@@ -1,0 +1,42 @@
+﻿@model IEnumerable<musteriFatura>
+@{
+    ViewData["Title"] = "Index";
+    var totalFaturaCount = Model.Count();
+}
+<div class="card">
+    <div class="card-header bg-warning">
+        <h5 class="text-center text-light fw-semibold align-content-md-center"> FATURALAR</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th> Musteri Id</th>
+                    <th> Fatura Tarihi</th>
+                    <th> fatura Tutarı</th>
+                    <th> Ödeme Tarihi </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.Id</td>
+                        <td>
+                            <a href="@Url.Action("CustomerDetails", "Employee", new { id = employee.musteriId })">
+                                @employee.musteriId
+                            </a>
+                        </td>
+                        <td>@employee.faturaTarihi</td>
+                        <td>@employee.faturaTutari</td>
+                        <td>@employee.odemeTarihi</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <strong class="text-right">Toplam Fatura Sayısı: @totalFaturaCount</strong>
+    
+</div>

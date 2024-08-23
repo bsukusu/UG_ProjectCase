@@ -1,0 +1,29 @@
+﻿@model UGCase.Models.musteri
+
+<div class="card">
+    <div class="card-header bg-warning">
+        <h5 class="text-center text-light fw-semibold">Müşteri Detayları</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h4>@Model.Unvan</h4>
+            </div>
+            <div class="col">
+
+                <p>Müşteri ID: @Model.Id</p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex">
+                <h5 class="fw-bold me-5 text-decoration-underline">Tarih:</h5>
+                <p class=" mb-0 ">@((DateTime)ViewData["MaxDebtDate"])</p>
+            </div>
+            <div class="d-flex">
+                <h5 class="fw-bold me-5 text-decoration-underline ">Tutar:</h5>
+                <p class="mb-0">@((decimal)ViewData["MaxDebtAmount"])</p>
+            </div>
+        </div>
+    </div>
+</div>
